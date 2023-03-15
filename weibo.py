@@ -16,6 +16,7 @@ path = '麻鸡拿指_01.html'
 htmlfile = open(path, 'r', encoding='utf-8')
 htmlhandle = htmlfile.read()
 soup = BeautifulSoup(htmlhandle, 'html.parser')
+
 # 1.获取所有的微博内容<div class="weibo-text">
 texts = soup.find_all("div", "weibo-text")
 players = []
@@ -41,6 +42,7 @@ for text in texts:
 
 # 排序
 sorted_player = sorted(players, key=lambda player: player.sum, reverse=True)
+
 # 输出所有选手信息
 for player in sorted_player:
     player.print()
